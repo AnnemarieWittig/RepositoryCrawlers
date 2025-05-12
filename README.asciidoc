@@ -1,0 +1,35 @@
+= Paper Scraper 
+
+In this repository, I have created simple Python scrapers using Beautiful Soup which are intended to scrape paper titles from conferences for literature reviews.
+
+Currently, the supported pages are:
+
+* *DBLP papers* using the base URL `https://dblp.org/db`, e.g., `https://dblp.org/db/journals/tosem/tosem33.html`  
+  File: `scrape_dblp_papers.py`
+
+* *Springer papers* using the base URL `https://link.springer.com`, e.g., `https://link.springer.com/journal/10664/volumes-and-issues/29-3`  
+  File: `scrape_springer_papers.py`
+
+* *Researchr papers* using the base URL `https://conf.researchr.org/track/`, e.g., `https://conf.researchr.org/track/fse-2025/fse-2025-research-papers`  
+  _Note:_ Use the link from a specific track and select the "accepted paper" option  
+  File: `scrape_researchr_papers.py`
+
+The links should be added to the URL list at the beginning of each scraper.
+
+[WARNING]
+====
+The DBLP and Springer scrapers have only been tested on journals.
+====
+
+== Output
+All scripts store the results in a csv file in the same location. All added links will be stored in the same file. The file contains three columns:
+
+* Conference: The name of the journal / conference; journals are extended with "ISSUE {ISSUE NUMBER}"
+* Year
+* Title: The titel is also appended with the authors and additional information, e.g.:
+
+____
+Paper Title, Author 1, Author 2, Author 3, ...  
+
+Pre-Print
+____
